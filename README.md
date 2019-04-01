@@ -1,3 +1,32 @@
-# Image-Gallery
-Html/CSS/JS
-练习-图片廊
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>图片画廊</title>
+        <link rel="stylesheet" href="CSS/imageGallery.css">
+    </head>
+    <body>  
+        <div class="gallery" id="gallery">
+            <!-- 2D控制 -->
+            <div class="center flip_front" onclick="turn(this)" id="img{{index}}"> 
+                <!-- 3D控制   -->
+                <div class="side_flip" id="side_flip">        
+                    <div class="side side-front">
+                        <p class="picture"><img src="IMG/{{img}}" alt="imagelosing!"></p>
+                        <p class="caption">{{caption}}</p>
+                    </div>
+                    
+                    <div class="side side_back">
+                        <p class="picture"><img src="IMG/{{img}}" alt="imagelosing!"></p>
+                        <p class="desc">{{desc}}<br><a href="">{{name}}</a></p>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div id="nav">
+            <span class="button" id="button{{index}}" onclick="turn(g('#img{{index}}'))"></span>
+        </div>
+        <script src="IMG/data.js"></script>
+        <script src="JS/imageGallery.js"></script>
+    </body>
+</html>
