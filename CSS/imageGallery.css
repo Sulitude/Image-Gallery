@@ -1,0 +1,264 @@
+*{padding: 0;margin: 0}
+body{
+    color: rgb(10, 10, 10);
+    font-family: "宋体","Microsoft Yahei",sans-serif;
+    font-size: 14px;
+}
+.gallery{
+    width: 100%;
+    height: 800px;
+    position: absolute;
+    top: 50%;
+    margin-top: -400px;
+    background-color: rgb(241, 241, 241);
+    overflow: hidden;
+    perspective: 1000px;
+
+    
+}
+/* 中间区域样式设置 */
+.center{
+    position: absolute;
+    width: 400px;
+    height: 620px;
+    top: 50%;
+    left: 50%;
+    margin: -310px 0 0 -200px;
+    box-shadow: 2px 2px 2px rgb(167, 167, 167); 
+    transition: all 1.5s ease-in-out 0.2s;
+}
+.center
+.side{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* .center
+.side-front{
+    display: none;
+} */
+.center
+.side
+.picture{
+    width: 100%;
+    height: 540px;
+    line-height: 540px;
+    overflow: hidden;
+}
+.center
+.side-front
+.picture
+img{
+    width: 100%;
+    vertical-align: middle;
+}
+.center
+.side-front
+.caption{
+    text-align: center;
+    font-size: 26px;
+    line-height: 50px;
+}
+.center
+.side_back{
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    text-align: center;  
+    background-color: #ffffff; 
+}
+.center
+.side_back
+.picture
+img{
+    width: 100%;
+    vertical-align: middle;
+    transform: rotateY(180deg);
+    opacity: 0.2;    
+}
+.center
+.side_back
+.desc{
+    position: relative;
+    top: -530px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 2.5em;
+}
+.center
+.side_back
+.desc
+a{
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+    color: black; 
+    z-index: 1;
+}
+.center
+.side_back
+.desc
+a:hover{
+    color: blue;
+    cursor: pointer;
+}
+/* 当前选中的图片样式 */
+.center_choice{
+    top: 50%;
+    left: 50%;
+    margin: -310px 0 0 -200px;
+    z-index: 999;
+    
+}
+.side_flip{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px; 
+
+   
+    
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    transition: all 1.5s ease-in-out 0.2s;
+}
+.side_flip
+.side{
+    backface-visibility: hidden;
+}
+/* 初始化正反两种状态,隐藏反面 */
+.side_flip
+.side-front{
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+.side_flip
+.side_back{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+/* 正反两种状态，用于按钮控制切换 */
+.flip_front
+.side_flip{
+    transform-origin: 0% 50%;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    
+}
+.flip_back
+.side_flip{
+    transform-origin: 0% 50%;
+    -webkit-transform: translateX(400px) rotateY(180deg);
+    -moz-transform: translateX(400px) rotateY(180deg);
+    -ms-transform: translateX(400px) rotateY(180deg);
+    -o-transform: translateX(400px) rotateY(180deg);
+    transform: translateX(400px) rotateY(180deg);
+    
+}
+
+/* 导航栏及按钮样式 */
+#nav{
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 60px;
+    top:50%;
+    left: 20%;
+
+
+
+    margin-top: 330px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    justify-content: space-around;
+}
+#nav
+.button{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    cursor: pointer;
+    background-color: rgb(170, 170, 170);
+    line-height: 60px;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+
+    transition: all 1.5s ease-in-out 0.2s;
+
+}
+/* 选中按钮样式 */
+#nav
+.button_front{
+    background-color: rgb(124, 138, 165);
+
+    -webkit-transform: scale(.8);
+    -moz-transform: scale(.8);
+    -ms-transform: scale(.8);
+    -o-transform: scale(.8);
+    transform: scale(.8);
+}
+#nav
+.button_front:after{
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    background-image: url(/IMG/fanzhuan.png);
+
+    background-image: url(d:/Learn/Front-end/Image-Gallery/IMG/fanzhuan.png);
+    background-size: 50px 43px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    width: 50px;
+    height: 43px;
+    top: 50%;
+    left: 50%;
+    margin: -22px 0 0 -21.5px;
+
+    
+ 
+}
+#nav
+.button_back{
+    -webkit-transform: rotateY(180deg) scale(.8);
+    -moz-transform: rotateY(180deg) scale(.8);
+    -ms-transform: rotateY(180deg) scale(.8);
+    -o-transform: rotateY(180deg) scale(.8);
+    transform: rotateY(180deg) scale(.8);
+}
+#nav
+.button_back:after{
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    background-image: url(/IMG/fanzhuan.png);
+    background-image: url(d:/Learn/Front-end/Image-Gallery/IMG/fanzhuan.png);
+    background-size: 50px 43px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    width: 50px;
+    height: 43px;
+    top: 50%;
+    left: 50%;
+    margin: -22px 0 0 -21.5px;
+  
+}
